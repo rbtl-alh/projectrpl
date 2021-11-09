@@ -1,0 +1,13 @@
+.top {
+    margin: 40px 10px;
+    background-color: green;
+}
+
+.login-image {
+    width: 500px;
+    /* background-color: red; */
+    background-image: url("/img/plasma.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: right;
+}

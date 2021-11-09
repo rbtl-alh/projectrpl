@@ -32,8 +32,6 @@
         </thead>
         <tbody>
             @foreach ($itemdonor as $donor)
-
-
                 <td>{{ ++$no }}</td>
                 <td>{{ $donor->nama }}</td>
                 <td>{{ $donor->jenis_kelamin }}</td>

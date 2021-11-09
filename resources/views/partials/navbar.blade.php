@@ -2,7 +2,7 @@
     <div class="container">
 
         <a class="navbar-brand fs-3" href="/">
-            <img src="/img/healthy.jpeg" alt="logo Dora" width="50" height="50">
+            <img src="/img/healthy.png" alt="logo Dora" width="50" height="50">
             &nbsp
             DoRa
         </a>

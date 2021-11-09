@@ -14,10 +14,6 @@ use App\Http\Controllers\DonorController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/login', function () {
     return view('auth.login');
 });
@@ -26,9 +22,14 @@ Route::get('/register', function () {
     return view('auth.register');
 });
 
+// Route::get('/', function () {
+//     return view('pages.home');
+// })->middleware(['auth'])->name('home');
+
 Route::get('/', function () {
-    return view('pages.index');
-})->middleware(['auth'])->name('home');
+    return view('pages.home', ['title' => 'Home']);
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
@@ -36,7 +37,7 @@ Route::get('/dashboard', function () {
 
 Route::resource('donor', 'App\Http\Controllers\DonorController')->middleware(['auth']);;
 //show donor
-Route::get('/', [DonorController::class, 'index']);
+Route::get('/lihatdonor', [DonorController::class, 'index']);
 //store donor
 Route::post('/donor', [DonorController::class, 'store']);
 

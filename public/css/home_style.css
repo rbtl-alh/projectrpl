@@ -1,0 +1,15 @@
+.info {
+    padding: 30px;
+    height: 400px;
+    width: auto;
+    border: 1px solid black;
+    background-image: url("/img/main_blood_image.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: right;
+}
+
+h1 {
+    font-size: 50px;
+    color: darkblue;
+}
