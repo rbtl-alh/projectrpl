@@ -1,13 +1,15 @@
-.top {
-    margin: 40px 10px;
-    background-color: green;
+.form-signin .form-floating:focus-within {
+    z-index: 2;
 }
 
-.login-image {
-    width: 500px;
-    /* background-color: red; */
-    background-image: url("/img/plasma.png");
-    background-repeat: no-repeat;
-    background-size: auto;
-    background-position: right;
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }

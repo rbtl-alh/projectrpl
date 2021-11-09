@@ -1,12 +1,13 @@
 .info {
-    padding: 30px;
-    height: 400px;
+    padding: 40px;
+    height: 500px;
     width: auto;
     border: 1px solid black;
-    background-image: url("/img/main_blood_image.jpg");
+    background-image: url("/img/plasma.png");
+    background-size: 600px;
     background-repeat: no-repeat;
-    background-size: auto;
     background-position: right;
+    box-sizing: border-box;
 }
 
 h1 {

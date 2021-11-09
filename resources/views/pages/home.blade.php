@@ -1,11 +1,10 @@
 @extends('layouts.main')
 
 @section('container')
-    <link rel="stylesheet" href="/css/home_style.css">
-
     <div class="info">
         <h1 class="red">DoRa <br> Donor Darah</h1>
-        <a class='btn btn-danger btn-lg' href='/donor/create'>+ Donor Sekarang</a>
+        <a class='btn btn-danger btn-lg' href='/donor/create'><i class="bi bi-plus-lg"></i> Donor Sekarang</a>
+
     </div>
     <hr>
     <ul>

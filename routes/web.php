@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DonorController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,8 @@ use App\Http\Controllers\DonorController;
 Route::get('/login', function () {
     return view('auth.login');
 });
+
+// Route::get('/login', [LoginController::class, 'index']);
 
 Route::get('/register', function () {
     return view('auth.register');
