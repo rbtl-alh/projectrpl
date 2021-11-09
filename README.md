@@ -10,6 +10,6 @@
 ## Cara pakai
 
 #### 1. clone repo ini di vscode
-#### 2. buka terminal dan masukan "composer install"
+#### 2. buka terminal dan ketik "composer install"
 #### 3. lalu setting .env (copy file env example lalu ubah2 sesuai konfigurasi)
 #### 4. lalu ketik "php artisan key:generate"
