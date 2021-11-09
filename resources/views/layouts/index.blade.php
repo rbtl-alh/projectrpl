@@ -1,4 +1,3 @@
-{{-- @dd($data) --}}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +40,6 @@
                 <td>{{ $donor->status_vaksin }}</td>
                 </tr>
             @endforeach
-
 
         </tbody>
     </table>
