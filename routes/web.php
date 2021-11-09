@@ -40,6 +40,4 @@ Route::get('/', [DonorController::class, 'index']);
 //store donor
 Route::post('/donor', [DonorController::class, 'store']);
 
-
-
 require __DIR__ . '/auth.php';
