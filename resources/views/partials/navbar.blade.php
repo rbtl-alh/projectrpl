@@ -16,7 +16,7 @@
                 <a class="nav-link" href="/donor/create">Daftar Donor</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/lihatdonor">Lihat Donor</a>
+                <a class="nav-link" href="/donor">Lihat Donor</a>
             </li>
         </ul>
 

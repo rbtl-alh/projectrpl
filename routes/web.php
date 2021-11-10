@@ -15,33 +15,24 @@ use App\Http\Controllers\LoginController;
 |
 */
 
+//login
 Route::get('/login', function () {
     return view('auth.login');
 });
 
-// Route::get('/login', [LoginController::class, 'index']);
-
+//register
 Route::get('/register', function () {
     return view('auth.register');
 });
 
-// Route::get('/', function () {
-//     return view('pages.home');
-// })->middleware(['auth'])->name('home');
-
+//home
 Route::get('/', function () {
-    return view('pages.home', ['title' => 'Home']);
+    return view('pages.index', ['title' => 'Home']);
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-
+//lihat data: /donor
+//daftar donor: /donor/create
 Route::resource('donor', 'App\Http\Controllers\DonorController')->middleware(['auth']);;
-//show donor
-Route::get('/lihatdonor', [DonorController::class, 'index']);
-//store donor
-Route::post('/donor', [DonorController::class, 'store']);
+
 
 require __DIR__ . '/auth.php';

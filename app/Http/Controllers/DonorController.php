@@ -22,7 +22,7 @@ class DonorController extends Controller
         $itemdonor = Donor::all();
         $data = array('itemuser' => $itemuser,
                 'itemdonor' => $itemdonor);
-        return view('pages.index', $data)->with('no', ($request->input('page', 1) - 1) * 20);
+        return view('donor.index', $data)->with('no', ($request->input('page', 1) - 1) * 20);
     }
     /**
      * Show the form for creating a new resource.
@@ -32,7 +32,7 @@ class DonorController extends Controller
     public function create()
     {
         //
-        return view('pages.create');
+        return view('donor.create');
     }
 
     /**
