@@ -8,6 +8,7 @@
     </div>
     <hr>
     <ul>
+        {{-- <h2>{{ $itemuser->name }}</h2> --}}
         <li>Usia 18-60 tahun</li>
         <li>Berat badan ≥ 55kg</li>
         <li>Diutamakan pria, apabila perempuan belum pernah hamil</li>

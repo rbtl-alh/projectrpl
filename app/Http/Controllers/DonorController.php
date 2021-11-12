@@ -15,9 +15,7 @@ class DonorController extends Controller
      */
     public function index(Request $request)
     {
-        //
-        // $itemdonor = Donor::all();
-        // return view('pages.index', compact('itemdonor'));
+        //mengirim data ke lihat data donor
         $itemuser = $request->user();
         $itemdonor = Donor::all();
         $data = array('itemuser' => $itemuser,
@@ -31,7 +29,7 @@ class DonorController extends Controller
      */
     public function create()
     {
-        //
+        //mengarahkan ke halaman form donor
         return view('donor.create');
     }
 
@@ -43,7 +41,7 @@ class DonorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //mengambil data yang sudah user isi pada form donor
         $this->validate($request, [ 
             'nama' => 'required',
             'jenis_kelamin' => 'required',
@@ -69,7 +67,8 @@ class DonorController extends Controller
      */
     public function show(Request $request, $id)
     {
-        //
+        //melihat data donor yang telah user buat 
+        //(setiap user akan dapat melihat data donor yang telah di upload)
         $itemuser = $request->user();
         $itemdonor = Donor::findOrFail($id);
         $data = array(
@@ -108,8 +107,11 @@ class DonorController extends Controller
      * @param  \App\Models\Donor  $donor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Donor $donor)
+    public function destroy(Donor $donor, $id)
     {
-        //
+        //menghapus data donor
+        //(data donor hanya dapat dihapus pada akun user masing-masing)
+        Donor::destroy($donor->id);
+        return redirect('/user/', $id)->with('status', 'Data Donor Berhasil Dihapus!');
     }
 }

@@ -19,7 +19,8 @@
 
 <body>
 
-    @include('partials.navbar')
+    {{-- @include('partials.navbar') --}}
+    @include(Auth::check() ? 'partials.navbarlogged' : 'partials.navbar')
 
     <div class="container mt-4">
         @yield("container")
