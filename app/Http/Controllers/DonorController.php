@@ -18,8 +18,10 @@ class DonorController extends Controller
         //mengirim data ke lihat data donor
         $itemuser = $request->user();
         $itemdonor = Donor::all();
-        $data = array('itemuser' => $itemuser,
-                'itemdonor' => $itemdonor);
+        $data = array(
+            'itemuser' => $itemuser,
+            'itemdonor' => $itemdonor
+        );
         return view('donor.index', $data)->with('no', ($request->input('page', 1) - 1) * 20);
     }
     /**
@@ -27,10 +29,16 @@ class DonorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //mengarahkan ke halaman form donor
-        return view('donor.create');
+        $itemuser = $request->user();
+        $itemdonor = Donor::all();
+        $data = array(
+            'itemuser' => $itemuser,
+            'itemdonor' => $itemdonor
+        );
+        return view('donor.create', $data);
     }
 
     /**
@@ -42,21 +50,20 @@ class DonorController extends Controller
     public function store(Request $request)
     {
         //mengambil data yang sudah user isi pada form donor
-        $this->validate($request, [ 
+        $this->validate($request, [
             'nama' => 'required',
             'jenis_kelamin' => 'required',
             'goldar' => 'required',
             'usia' => 'required|numeric',
             'alamat' => 'required',
-            'status_vaksin' => 'required',        
+            'status_vaksin' => 'required',
         ]);
         $itemuser = $request->user();
         $inputan = $request->all();
         $inputan['user_id'] = $itemuser->id;
+        // $itemproduk = Donor::create($inputan);
 
-        $itemproduk = Donor::create($inputan);
-        
-        return redirect('/')->with('status', 'Data Donor Berhasil Ditambahkan!');
+        return redirect('/donor')->with('status', 'Data Donor Berhasil Ditambahkan!');
     }
 
     /**
@@ -67,15 +74,15 @@ class DonorController extends Controller
      */
     public function show(Request $request, $id)
     {
-        //melihat data donor yang telah user buat 
+        //melihat data donor yang telah user buat
         //(setiap user akan dapat melihat data donor yang telah di upload)
         $itemuser = $request->user();
         $itemdonor = Donor::findOrFail($id);
         $data = array(
-                'itemuser' => $itemuser,
-                'itemdonor' => $itemdonor);
+            'itemuser' => $itemuser,
+            'itemdonor' => $itemdonor
+        );
         return view('pages.index', $data);
-
     }
 
     /**

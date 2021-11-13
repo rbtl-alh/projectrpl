@@ -62,8 +62,8 @@ class UserController extends Controller
         $itemuser = $request->user();
         $user = User::findOrFail($id);
         $itemdonor = Donor::where('user_id', $itemuser->id)
-                        ->orderBy('created_at', 'desc')
-                        ->get();              
+            ->orderBy('created_at', 'desc')
+            ->get();
         $title = 'Profile';
         $data = array(
             'user' => $user,
@@ -115,9 +115,9 @@ class UserController extends Controller
             }
         );
         return $status == Password::PASSWORD_RESET
-                    ? redirect()->route('login')->with('status', __($status))
-                    : back()->withInput($request->only('email'))
-                            ->withErrors(['email' => __($status)]);
+            ? redirect()->route('login')->with('status', __($status))
+            : back()->withInput($request->only('email'))
+            ->withErrors(['email' => __($status)]);
         // return redirect()->route('user.show', $id)->with('status', 'Data berhasil diupdate');
     }
 

@@ -1,24 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+{{-- @dd($itemuser) --}}
+@php
+$title = 'Daftar Donor';
+$user = $itemuser;
+$donor = $itemdonor;
+@endphp
+{{-- @dd($donor) --}}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>Daftar Donor</title>
-</head>
-
-<body>
+@extends('layouts.main')
+@section('container')
     <div class="container-fluid">
-        <div class="row">
-            <div class="col col-lg-6 col-md-6">
+        <div class="row justify-content-center">
+            <div class="col col-lg-7 col-md-6">
                 <div class="card">
                     <div class="card-header">
-
+                        <h1 class="text-center pt-4 mb-10" style="font-size: 3rem; font-weight: 700;">Formulir Donor</h1>
                     </div>
                     <div class="card-body">
+                        {{-- bagian error --}}
                         @if (count($errors) > 0)
                             @foreach ($errors->all() as $error)
                                 <div class="alert alert-warning">{{ $error }}</div>
@@ -34,6 +32,8 @@
                                 <p>{{ $message }}</p>
                             </div>
                         @endif
+
+                        {{-- form pendaftaran --}}
                         <form action="/donor" method="post" enctype="multipart/form-data">
                             @csrf
 
@@ -77,18 +77,16 @@
                             </div>
                             <div class="mb-3">
                                 <label for="usia" class="form-label">Usia</label>
-                                <input type="number" min=18 max=60
-                                    class="form-control @error('usia') is-invalid @enderror" id="usia"
-                                    placeholder="Masukkan Usia" name="usia" value="{{ old('usia') }}">
+                                <input type="number" min=18 max=60 class="form-control @error('usia') is-invalid @enderror"
+                                    id="usia" placeholder="Masukkan Usia" name="usia" value="{{ old('usia') }}">
                                 @error('usia')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="alamat" class="form-label">Alamat</label>
-                                <input type="text" class="form-control @error('alamat') is-invalid @enderror"
-                                    id="alamat" placeholder="Masukkan Alamat" name="alamat"
-                                    value="{{ old('alamat') }}">
+                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat"
+                                    placeholder="Masukkan Alamat" name="alamat" value="{{ old('alamat') }}">
                                 @error('alamat')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -117,12 +115,4 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
-    </script>
-</body>
-
-</html>
+@endsection

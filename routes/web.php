@@ -38,22 +38,22 @@ Route::get('/', function () {
 
 ////////////////////////////mulai auth//////////////////////////////////
 //route yang ada di dalam sini hanya bisa diakses setelah login
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth'], function () {
 
-//untuk mengambil data $user, agar terbaca pada navbar
-Route::get('/', [UserController::class, 'index']);
+    //untuk mengambil data $user, agar terbaca pada navbar
+    Route::get('/', [UserController::class, 'index']);
 
-//lihat data: /donor
-//daftar donor: /donor/create
-Route::resource('donor', 'App\Http\Controllers\DonorController')->middleware(['auth']);;
-//show data: user/{$id}
-Route::resource('user', 'App\Http\Controllers\UserController')->middleware(['auth']);;
+    //lihat data: /donor
+    //daftar donor: /donor/create
+    Route::resource('donor', 'App\Http\Controllers\DonorController')->middleware(['auth']);;
+    //show data: user/{$id}
+    Route::resource('user', 'App\Http\Controllers\UserController')->middleware(['auth']);;
 });
 ////////////////////////////batas auth///////////////////////////////////
 
 //untuk logout
 Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])
-                ->name('logout');
+    ->name('logout');
 
 Route::post('/reset-password', function (Request $request) {
     $request->validate([
@@ -76,8 +76,8 @@ Route::post('/reset-password', function (Request $request) {
     );
 
     return $status === Password::PASSWORD_RESET
-                ? redirect()->route('login')->with('status', __($status))
-                : back()->withErrors(['email' => [__($status)]]);
+        ? redirect()->route('login')->with('status', __($status))
+        : back()->withErrors(['email' => [__($status)]]);
 })->middleware('guest')->name('password.update');
 
 require __DIR__ . '/auth.php';
