@@ -4,7 +4,6 @@ $title = 'Daftar Donor';
 $user = $itemuser;
 $donor = $itemdonor;
 @endphp
-{{-- @dd($donor) --}}
 
 @extends('layouts.main')
 @section('container')

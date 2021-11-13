@@ -11,30 +11,19 @@
                 <a class="nav-link {{ $title == 'Home' ? 'active' : '' }}" href="/">Home</a>
             </li>
             <li class="nav-item">
-                {{-- <a class="nav-link {{ $title == 'DaftarDonor' ? 'active' : '' }}" href="/daftardonor">Daftar
-                    Donor</a> --}}
-                <a class="nav-link" href="/donor/create">Daftar Donor</a>
+                <a class="nav-link {{ $title == 'Daftar Donor' ? 'active' : '' }}" href="/donor/create">Daftar
+                    Donor</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/donor">Lihat Donor</a>
+                <a class="nav-link {{ $title == 'Lihat Donor' ? 'active' : '' }}" href="/donor">Lihat Donor</a>
             </li>
         </ul>
 
-        {{-- <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/logout">
-                    <i class="bi bi-person-check"></i>
-                    <i class="bi bi-box-arrow-right"></i>
-                    @method('post')
-                    @csrf
-                    Logout
-                </a>
-            </li>
-        </ul> --}}
         <ul class="navbar-nav ms-auto">
             <li class="nav-item">
                 {{-- nama user --}}
-                <a class="nav-link {{ $title == 'Profile' ? 'active' : '' }}" href="">{{ $user->name }}</a>
+                <a class="nav-link {{ $title == 'Profile' ? 'active' : '' }}"
+                    href="/user/{{ $user->id }}">{{ $user->name }}</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
