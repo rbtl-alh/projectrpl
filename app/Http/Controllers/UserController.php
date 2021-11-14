@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ChangePasswordRequest;
 use App\Models\Donor;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -91,34 +92,53 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // public function update(ChangePasswordRequest $request)
     public function update(Request $request, $id)
     {
-        //update data user
-        // $user = User::findOrFail($id);
-        // $inputan = $request->all();
-        // $inputan['id'] = $id;
-        // $user->update($inputan);
-        $request->validate([
-            'token' => ['required'],
-            'email' => ['required', 'email'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
-        $status = Password::reset(
-            $request->only('email', 'password', 'password_confirmation', 'token'),
-            function ($user) use ($request) {
-                $user->forceFill([
-                    'password' => Hash::make($request->password),
-                    'remember_token' => Str::random(60),
-                ])->save();
+        // $old_pssword = auth()->user()->passwrod;
+        // $user_id = auth()->user()->id;
 
+        // if(Hash::check($request->input('old_passwrod'), $old_pssword)){
+
+        // }else{
+        //     return redirect()->back()->with('failed', 'Passsword lama invalid');
+        // }
+
+
+        //update data user
+        $user = User::findOrFail($id);
+        function ($user) use ($request) {
+            $user->forceFill([
+                'password' => Hash::make($request->password),
+                'remember_token' => Str::random(60),
+                ])->save();
+                
                 event(new PasswordReset($user));
-            }
-        );
-        return $status == Password::PASSWORD_RESET
-            ? redirect()->route('login')->with('status', __($status))
-            : back()->withInput($request->only('email'))
-            ->withErrors(['email' => __($status)]);
-        // return redirect()->route('user.show', $id)->with('status', 'Data berhasil diupdate');
+            };
+        $inputan = $request->all();
+        $inputan['id'] = $id;
+        // $request->validate([
+            //     'token' => ['required'],
+            //     'email' => ['required', 'email'],
+            //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            // ]);
+        // $status = Password::reset(
+        //     $request->only('nama', 'email', 'password', 'password_confirmation', 'token'),
+        //     function ($user) use ($request) {
+        //         $user->forceFill([
+        //             'password' => Hash::make($request->password),
+        //             'remember_token' => Str::random(60),
+        //             ])->save();
+                    
+        //             event(new PasswordReset($user));
+        //         }
+        //     );
+        $user->update($inputan);
+        //         return $status == Password::PASSWORD_RESET
+        //     ? redirect()->route('user.show', $id)->with('status', __($status))
+        //     : back()->withInput($request->only('email'))
+        //     ->withErrors(['email' => __($status)]);
+        return redirect()->route('user.show', $id)->with('status', 'Data berhasil diupdate');
     }
 
     /**

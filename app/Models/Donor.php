@@ -12,6 +12,7 @@ class Donor extends Model
     protected $fillable = [
     'user_id',
     'nama',
+    'email',
     'jenis_kelamin',
     'goldar',
     'usia',

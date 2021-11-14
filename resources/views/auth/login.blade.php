@@ -14,7 +14,7 @@ $title = 'Login';
                 <!-- Validation Errors -->
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
-                    <h1 class="text-center pt-4 mb-10" style="font-size: 3rem; font-weight: 700;">Login Page</h1>
+                    <h1 class="text-center pt-4 mb-10" style="font-size: 3rem; font-weight: 700;">Login</h1>
                     <!-- Email Address -->
                     <div class="form-floating mb-4">
                         <x-input id="email" class="form-control" type="email" name="email" placeholder="name@example.com"
@@ -30,7 +30,7 @@ $title = 'Login';
                     </div>
 
                     <div class="signup pb-3">
-                        <div>Not registered?<a href="{{ url('/register') }}" class="text-primary"> register now!</a>
+                        <div>Belum punya akun?<a href="{{ url('/register') }}" class="text-primary"> daftar sekarang!</a>
                         </div>
                     </div>
 

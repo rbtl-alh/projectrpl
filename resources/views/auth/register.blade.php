@@ -8,14 +8,14 @@ $title = 'Register';
 
     <div class="row justify-content-center">
         <div class="col-sm-6 mb-10">
-            <h1 class="text-center pt-4" style="font-size: 3rem; font-weight: 700;">Register</h1>
+            <h1 class="text-center pt-4" style="font-size: 3rem; font-weight: 700;">Registrasi</h1>
             <x-guest-layout>
                 <!-- Validation Errors -->
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
                     <!-- Name -->
                     <div class="form-group pb-3 mt-10">
-                        <x-label for="name" :value="__('Name')" />
+                        <x-label for="name" :value="__('Nama')" />
 
                         <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required
                             autofocus />
@@ -28,12 +28,12 @@ $title = 'Register';
                         <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
                             required />
                     </div>
-                    <div class="form-group mt-2">
+                    {{-- <div class="form-group mt-2">
                         <x-label for="email" :value="__('Username')" />
 
                         <x-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')"
                             required />
-                    </div>
+                    </div> --}}
 
                     <!-- Password -->
                     <div class="mt-2">
@@ -45,17 +45,19 @@ $title = 'Register';
 
                     <!-- Confirm Password -->
                     <div class="mt-2">
-                        <x-label for="password_confirmation" :value="__('Confirm Password')" />
+                        <x-label for="password_confirmation" :value="__('Konfirmasi Password')" />
 
                         <x-input id="password_confirmation" class="block mt-1 w-full" type="password"
                             name="password_confirmation" required />
                     </div>
 
-                    <div class="signup pb-3 mt-2">
+                    {{-- <div class="signup pb-3 mt-2">
                         <div>Already registered?<a href="{{ url('/login') }}" class="text-primary"> Login
                                 now!</a>
                         </div>
-                    </div>
+                    </div> --}}
+
+                    <br><br>
 
                     <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
 

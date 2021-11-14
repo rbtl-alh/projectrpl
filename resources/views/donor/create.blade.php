@@ -45,6 +45,14 @@ $donor = $itemdonor;
                                 @enderror
                             </div>
                             <div class="mb-3">
+                                <label for="email" class="form-label">Kontak yang dapat dihubungi</label>
+                                <input type="text" class="form-control @error('email') is-invalid @enderror" id="email"
+                                    placeholder="kontak" name="email" value="{{ old('email') }}">
+                                @error('email')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
                                 <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
                                 <select name="jenis_kelamin" id="jenis_kelamin" class="form-control">
                                     <option value="" disabled selected>pilih jenis kelamin</option>
@@ -83,9 +91,9 @@ $donor = $itemdonor;
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="alamat" class="form-label">Alamat</label>
+                                <label for="alamat" class="form-label">Alamat</label>                                
                                 <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat"
-                                    placeholder="Masukkan Alamat" name="alamat" value="{{ old('alamat') }}">
+                                    placeholder="masukkan kota/kabupaten domisili" name="alamat" value="{{ old('alamat') }}">
                                 @error('alamat')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror

@@ -16,10 +16,11 @@ class DonorController extends Controller
     public function index(Request $request)
     {
         //mengirim data ke lihat data donor
-        $itemuser = $request->user();
+        $user = $request->user();
         $itemdonor = Donor::all();
         $data = array(
-            'itemuser' => $itemuser,
+            'title' => 'Lihat Donor',
+            'user' => $user,
             'itemdonor' => $itemdonor
         );
         return view('donor.index', $data)->with('no', ($request->input('page', 1) - 1) * 20);
@@ -52,6 +53,7 @@ class DonorController extends Controller
         //mengambil data yang sudah user isi pada form donor
         $this->validate($request, [
             'nama' => 'required',
+            'email' => 'required',
             'jenis_kelamin' => 'required',
             'goldar' => 'required',
             'usia' => 'required|numeric',
@@ -61,9 +63,15 @@ class DonorController extends Controller
         $itemuser = $request->user();
         $inputan = $request->all();
         $inputan['user_id'] = $itemuser->id;
-        // $itemproduk = Donor::create($inputan);
+        $itemdonor = Donor::create($inputan);
 
-        return redirect('/donor')->with('status', 'Data Donor Berhasil Ditambahkan!');
+        if($itemuser->id == $request->user_id){                    
+            return back()->with('failed', 'Gagal');
+        }else{
+            // return view('pages.bukanadmin');
+            return redirect('/donor')->with('status', 'Data Donor Berhasil Ditambahkan!');
+        }
+
     }
 
     /**
@@ -114,11 +122,34 @@ class DonorController extends Controller
      * @param  \App\Models\Donor  $donor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Donor $donor, $id)
+    public function destroy($id)
     {
         //menghapus data donor
         //(data donor hanya dapat dihapus pada akun user masing-masing)
-        Donor::destroy($donor->id);
-        return redirect('/user/', $id)->with('status', 'Data Donor Berhasil Dihapus!');
+        $itemdonor = Donor::findOrFail($id);//cari berdasarkan id = $id, 
+        // kalo ga ada error page not found 404
+        if ($itemdonor->delete()) {
+            return back()->with('success', 'Data berhasil dihapus');
+        } else {
+            return back()->with('error', 'Data gagal dihapus');
+        }
+    }
+
+    public function search(Request $request)
+    {
+        $request->validate([
+            'search'=>'required|min:2'
+         ]);
+
+         $user = $request->user();
+         $search_text = $request->input('search');
+         $itemdonor = Donor::where('alamat','LIKE','%'.$search_text.'%')
+                    // ->where('cart_id', $itemcart->id)
+                  //   ->orWhere('SurfaceArea','<', 10)
+                  //   ->orWhere('LocalName','like','%'.$search_text.'%')
+                    ->first();
+        $data = array('itemdonor' => $itemdonor,
+                    'user' => $user);
+        return view('donor.index', $data);
     }
 }
