@@ -16,16 +16,16 @@ $donor = $itemdonor;
                     </div>
                     <div class="card-body">
                         {{-- bagian error --}}
-                        @if (count($errors) > 0)
+                        {{-- @if (count($errors) > 0)
                             @foreach ($errors->all() as $error)
                                 <div class="alert alert-warning">{{ $error }}</div>
                             @endforeach
-                        @endif
-                        @if ($message = Session::get('error'))
+                        @endif --}}
+                        {{-- @if ($message = Session::get('error'))
                             <div class="alert alert-warning">
                                 <p>{{ $message }}</p>
                             </div>
-                        @endif
+                        @endif --}}
                         @if ($message = Session::get('success'))
                             <div class="alert alert-success">
                                 <p>{{ $message }}</p>
@@ -91,9 +91,10 @@ $donor = $itemdonor;
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="alamat" class="form-label">Alamat</label>                                
+                                <label for="alamat" class="form-label">Alamat</label>
                                 <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat"
-                                    placeholder="masukkan kota/kabupaten domisili" name="alamat" value="{{ old('alamat') }}">
+                                    placeholder="masukkan kota/kabupaten domisili" name="alamat"
+                                    value="{{ old('alamat') }}">
                                 @error('alamat')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
