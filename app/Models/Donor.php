@@ -18,6 +18,7 @@ class Donor extends Model
     'usia',
     'alamat',
     'status_vaksin',
+    'riwayat_penyakit',
     ];
 
     public function user() {

@@ -107,14 +107,6 @@ class UserController extends Controller
 
         //update data user
         $user = User::findOrFail($id);
-        function ($user) use ($request) {
-            $user->forceFill([
-                'password' => Hash::make($request->password),
-                'remember_token' => Str::random(60),
-                ])->save();
-                
-                event(new PasswordReset($user));
-            };
         $inputan = $request->all();
         $inputan['id'] = $id;
         // $request->validate([

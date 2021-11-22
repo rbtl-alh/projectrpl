@@ -39,12 +39,13 @@ $donor = $itemdonor;
                 <th scope="col">Golongan Darah</th>
                 <th scope="col">Usia</th>
                 <th scope="col">Lokasi</th>
+                <th scope="col">Riwayat Penyakit</th>
                 <th scope="col">Status Vaksin</th>
                 <th scope="col">Kontak</th>
             </tr>
         </thead>
         <tbody>
-            @if(count($itemdonor) > 1)
+            @if(count($itemdonor) > 0)
             @foreach ($itemdonor as $donor)
             <td>{{ ++$no }}</td>
             <td>{{ $donor->nama }}</td>
@@ -52,6 +53,7 @@ $donor = $itemdonor;
             <td>{{ $donor->goldar }}</td>
             <td>{{ $donor->usia }}</td>
             <td>{{ $donor->alamat }}</td>
+            <td>{{ $donor->riwayat_penyakit }}</td>
             <td>{{ $donor->status_vaksin }}</td>
             <td>{{ $donor->email }}</td>
         </tr>

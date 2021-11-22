@@ -99,6 +99,14 @@ $donor = $itemdonor;
                                 @enderror
                             </div>
                             <div class="mb-3">
+                                <label for="" class="form-label">Riwayat Penyakit</label>                                
+                                <input type="text" class="form-control @error('riwayat_penyakit') is-invalid @enderror" id="riwayat_penyakit"
+                                    placeholder="masukkan riwayat penyakit" name="riwayat_penyakit" value="{{ old('riwayat_penyakit') }}">
+                                @error('riwayat_penyakit')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
                                 <label for="status_vaksin" class="form-label">Status Vaksin</label>
                                 <select name="status_vaksin" id="status_vaksin" class="form-control">
                                     <option value=""></option>
