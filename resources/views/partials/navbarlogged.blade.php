@@ -32,7 +32,7 @@
                         width="40" height="40" class="rounded-circle">
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="/user/{{ $user->id }}">Settings</a></li>
+                    <li><a class="dropdown-item" href="/user/{{ $user->id }}">Lihat Profil</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>

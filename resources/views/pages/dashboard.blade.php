@@ -19,12 +19,18 @@
                             <div class="mb-3">
                                 <label for="name" class="form-label">Nama</label>
                                 <input type="name" name="name" class="form-control" id="email"
-                                    value="{{ $user->name }}">                                
+                                    value="{{ $user->name }}">
+                                @error('name')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror                                
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" name="email" class="form-control" id="email"
-                                    aria-describedby="emailHelp" value="{{ $user->email }}">
+                                aria-describedby="emailHelp" value="{{ $user->email }}">
+                                @error('email')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror                                
                             </div>
                             {{-- <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>

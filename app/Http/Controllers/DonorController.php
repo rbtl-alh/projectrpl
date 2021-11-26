@@ -42,7 +42,18 @@ class DonorController extends Controller
             'alamat' => 'required',
             'status_vaksin' => 'required',
             'riwayat_penyakit' => 'required',
-        ]);
+        ],[
+            'nama.required' => 'Nama tidak boleh kosong',
+            'email.required' => 'Kontak tidak boleh kosong',
+            'jenis_kelamin.required' => 'Jenis Kelamin tidak boleh kosong',
+            'goldar.required' => 'Golongan Darah tidak boleh kosong',
+            'usia.required' => 'Usia tidak boleh kosong',
+            'alamat.required' => 'Alamat tidak boleh kosong',
+            'status_vaksin.required' => 'Status Vaksin tidak boleh kosong',
+            'riwayat_penyakit.required' => 'Riwayat Penyakit tidak boleh kosong',
+            'usia.numeric' => 'Usia harus angka',
+        ]
+        );
         $itemuser = $request->user();
         $inputan = $request->all();
         $inputan['user_id'] = $itemuser->id;

@@ -20,6 +20,9 @@ $title = 'Login';
                         <x-input id="email" class="form-control" type="email" name="email" placeholder="name@example.com"
                             required />
                         <x-label for="email" value="Email" />
+                        @error('email')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <!-- Password -->

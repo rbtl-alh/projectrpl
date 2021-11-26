@@ -103,7 +103,15 @@ class UserController extends Controller
         // }else{
         //     return redirect()->back()->with('failed', 'Passsword lama invalid');
         // }
-
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|unique:users',
+        ],[
+            'email.unique' => 'Email telah digunakan',
+            'email.required' => 'Email tidak boleh kosong',
+            'name.required' => 'Nama tidak boleh kosong',
+        ]
+    );
 
         //update data user
         $user = User::findOrFail($id);
