@@ -12,7 +12,8 @@ $donor = $itemdonor;
             {{ session('status') }}
         </div>
     @endif
-
+    
+    @if(count($itemdonor) > 0)
     <div class="row g-3 align-item-center justify-content-sm-center">
         <div class="col-4">            
             <div class="form-group">                
@@ -44,9 +45,10 @@ $donor = $itemdonor;
                 <th scope="col">Kontak</th>
             </tr>
         </thead>
+
         <tbody>
-            @if(count($itemdonor) > 0)
             @foreach ($itemdonor as $donor)
+        <tr>
             <td>{{ ++$no }}</td>
             <td>{{ $donor->nama }}</td>
             <td>{{ $donor->jenis_kelamin }}</td>
@@ -58,7 +60,6 @@ $donor = $itemdonor;
             <td>{{ $donor->email }}</td>
         </tr>
         @endforeach
-        @endif
         {{-- @foreach ($user as $itemuser)
             
             @endforeach --}}
@@ -66,29 +67,46 @@ $donor = $itemdonor;
             
         </tbody>
     </table>
-    
+    @else
+        <div class="row">
+            <div class="col-12">
+                <div class="position-absolute top-50 start-50 translate-middle">
+                    <center>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Maaf, data donor belum tersedia :(</h4>
+                            </div>
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </div>
+    @endif
+
+
     <script>
         function myFunction() {
-        // Declare variables
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("myTable");
-        tr = table.getElementsByTagName("tr");
-        
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[5];
-        console.log(td);
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
+            // Declare variables
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[5];
+                console.log(td);
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";                
+                        }
+                    }
             }
-            }
-        }
+
         }
     </script>
 

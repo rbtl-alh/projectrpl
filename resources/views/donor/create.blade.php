@@ -84,14 +84,14 @@ $donor = $itemdonor;
                             </div>
                             <div class="mb-3">
                                 <label for="usia" class="form-label">Usia</label>
-                                <input type="number" min=18 max=60 class="form-control @error('usia') is-invalid @enderror"
-                                    id="usia" placeholder="Masukkan Usia" name="usia" value="{{ old('usia') }}">
+                                <input type="number" class="form-control @error('usia') is-invalid @enderror"
+                                    id="usia" placeholder="masukkan usia" name="usia" value="{{ old('usia') }}">
                                 @error('usia')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="alamat" class="form-label">Alamat</label>
+                                <label for="alamat" class="form-label">Lokasi</label>
                                 <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat"
                                     placeholder="masukkan kota/kabupaten domisili" name="alamat"
                                     value="{{ old('alamat') }}">
@@ -108,10 +108,10 @@ $donor = $itemdonor;
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="status_vaksin" class="form-label">Status Vaksin</label>
+                                <label for="status_vaksin" class="form-label">Status Vaksinasi</label>
                                 <select name="status_vaksin" id="status_vaksin" class="form-control">
                                     <option value=""></option>
-                                    <option value="" disabled selected>pilih status vaksin</option>
+                                    <option value="" disabled selected>pilih status vaksinasi</option>
                                     <option value="Sudah Vaksin Satu">Sudah Vaksin 1</option>
                                     <option value="Sudah Vaksin Dua">Sudah Vaksin 2</option>
                                     <option value="Belum Vaksin">Belum Vaksin</option>
@@ -122,7 +122,7 @@ $donor = $itemdonor;
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Simpan</button>
-                                <button type="reset" class="btn btn-warning">Reset</button>
+                                {{-- <button type="reset" class="btn btn-warning">Reset</button> --}}
                             </div>
                         </form>
                     </div>

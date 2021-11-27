@@ -21,7 +21,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        //mengirim data user ke halaman home, untuk ditampilkan pada navabar
+        //mengirim data user ke halaman home, untuk ditampilkan pada navbar
         $user = $request->user();
         $data = array(
             'user' => $user,

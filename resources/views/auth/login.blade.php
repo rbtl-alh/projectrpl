@@ -18,8 +18,8 @@ $title = 'Login';
                     <!-- Email Address -->
                     <div class="form-floating mb-4">
                         <x-input id="email" class="form-control" type="email" name="email" placeholder="name@example.com"
-                            required />
-                        <x-label for="email" value="Email" />
+                            />
+                        <x-label for="email" value="email" />
                         @error('email')
                                 <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -28,8 +28,11 @@ $title = 'Login';
                     <!-- Password -->
                     <div class="form-floating mb-4">
                         <x-input id="password" class="form-control" type="password" name="password" placeholder="12345678"
-                            required />
+                            />
                         <x-label for="password" value="password" />
+                        @error('password')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="signup pb-3">
