@@ -2,7 +2,12 @@
 
 @section('container')
 
-    <div class="container">
+@if (session('status'))
+<div class="alert alert-success">
+    {{ session('status') }}
+</div>
+@endif
+    
         <div class="card">
             <div class="card-body">
                 <div class="row">
@@ -85,6 +90,5 @@
                 </div>
             </div>
         </div>
-    </div>
 
 @endsection

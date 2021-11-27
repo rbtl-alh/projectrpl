@@ -76,8 +76,11 @@ class DonorController extends Controller
     public function destroy($id)
     {        
         $itemdonor = Donor::findOrFail($id);    
+        // $itemdonor->delete();
+        
+        // return back()->with('status', 'Data berhasil dihapus');
         if ($itemdonor->delete()) {
-            return back()->with('success', 'Data berhasil dihapus');
+            return back()->with('status', 'Data berhasil dihapus');
         } else {
             return back()->with('error', 'Data gagal dihapus');
         }
