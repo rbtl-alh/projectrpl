@@ -12,7 +12,8 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-4">
-                        <img src="{{ asset('img/profile.png') }}" alt="">
+                        <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-user-user-flatart-icons-outline-flatarticons-9.png"
+                    style="width: 100px"/>
                         <h5>{{ $user->name }}</h5>
                         <h5>{{ $user->email }}</h5>
                     </div>

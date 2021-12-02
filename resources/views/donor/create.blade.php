@@ -100,9 +100,10 @@ $donor = $itemdonor;
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="" class="form-label">Riwayat Penyakit</label>                                
+                                <label for="" class="form-label">Riwayat Penyakit</label>
+                                <h6 style="font-size: 12px; font-style: italic; color: red;">*jika ingin donor plasma konvalesen, tuliskan riwayat penyakit COVID-19</h6>
                                 <input type="text" class="form-control @error('riwayat_penyakit') is-invalid @enderror" id="riwayat_penyakit"
-                                    placeholder="masukkan riwayat penyakit" name="riwayat_penyakit" value="{{ old('riwayat_penyakit') }}">
+                                    placeholder="contoh: covid-19, diabetes, dll" name="riwayat_penyakit" value="{{ old('riwayat_penyakit') }}">
                                 @error('riwayat_penyakit')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
